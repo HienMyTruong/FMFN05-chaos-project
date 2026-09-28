@@ -9,10 +9,12 @@ class ChaoticShuffle:
     def next_chaotic_float(self):
         k = 4.0 #k > 3 for chaos!!!
         self.x = k * self.x * (1.0 - self.x)
+        #print(self.x)
 
-        # Prevent the generator getting stuck at 0 or 1
         if not (0 < self.x < 1):
-            self.x = 0.42
+            print(self.x)
+            # Prevent the generator getting stuck at 0 or 1
+            #self.x = 0.42
 
         return self.x
 
