@@ -6,16 +6,15 @@ class ChaoticShuffle:
         self.x = seed
         self.warm_up(100)
 
-    def next_chaotic_float(self):
+    def next_chaotic_float(self, noise=0):
         k = 4.0 #k > 3 for chaos!!!
-        self.x = k * self.x * (1.0 - self.x)
+        self.x = k * self.x * (1.0 - self.x) + noise
+
         #print(self.x)
+        # noise = some random uniform within range of (-epsilon, epsilon)
 
-        if not (0 < self.x < 1):
-            print(self.x)
-            # Prevent the generator getting stuck at 0 or 1
-            #self.x = 0.42
-
+        self.x = min(max(self.x, 0.0), 1.0)
+        
         return self.x
 
     def warm_up(self, steps):
