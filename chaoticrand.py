@@ -23,7 +23,7 @@ class ChaoticShuffle:
         self.next_chaotic_float()
         self.warm_up(steps - 1)
 
-    def peudo_random_integer(self, minimum, maximum):
+    def pseudo_random_integer(self, minimum, maximum):
         #Converting the chaotic decimal into an integer.
 
         value = self.next_chaotic_float()
@@ -41,7 +41,7 @@ class ChaoticShuffle:
 
         if i <= 0:
             return
-        j = self.peudo_random_integer(0, i)
+        j = self.pseudo_random_integer(0, i)
 
         items[i], items[j] = items[j], items[i]
         self.shuffling(items, i - 1)
