@@ -26,7 +26,7 @@ Chaos as a noise amplifier. Simulate the logistic map with additive noise of siz
 	8) Entropy rate (Hien)
 	9) Auto correlation of numbers?? (Sofie & Hugo)
 2) Code/find:
-	1) Bit extractor (library??)
+	1) Bit extractor (own implementation)
 	2) Lyapunov estimate
 	3) Randomness tests (library??)
 	4) Entropy rate (library)
