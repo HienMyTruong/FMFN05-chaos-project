@@ -33,6 +33,6 @@ von_neumann_bits = [
     for _ in range(MEGABITS)
 ]
 
-print(von_neumann_bits)
+#print(von_neumann_bits)
 
-print(bits_)
+#print(bits_)
