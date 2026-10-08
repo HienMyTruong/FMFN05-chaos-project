@@ -1,3 +1,5 @@
+import numpy as np
+
 class ChaoticShuffle:
     def __init__(self, seed=0.99999):
         if not (0 < seed < 1):
@@ -6,8 +8,9 @@ class ChaoticShuffle:
         self.x = seed
         self.warm_up(100)
 
-    def next_chaotic_float(self, noise=0):
+    def next_chaotic_float(self, epsilon=0.001):
         k = 4.0 #k > 3 for chaos!!!
+        noise = np.random.normal(loc=0.0, scale=epsilon)
         self.x = k * self.x * (1.0 - self.x) + noise
 
         #print(self.x)
