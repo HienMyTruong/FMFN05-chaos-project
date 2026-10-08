@@ -33,3 +33,21 @@ Chaos as a noise amplifier. Simulate the logistic map with additive noise of siz
 	5) Check fraction of ones in generated bits
 	6) Auto correlation and spectrum (library??)
 	7) Shannon entropy checker (in block) (library)
+
+
+
+
+Möte 2 8/10:
+Plan till nästa möte den 15 /10 
+- Bakgrundsteori till stort sett klart
+Map och koppling till brus: Hugo
+Kort inslag om kaotisk laser: Hugo
+Autokorrelation: Sofia
+Lyapunov exponent: Sofia
+Entropi: Hien
+Tester för kontroll av random: Hien
+
+
+
+
+- Påbö
