@@ -4,9 +4,18 @@ from collections import Counter
 import math
 
 
+
 class Entropy:
     def __init__(self, bits):
         self.bits = bits
+
+    @staticmethod
+    def H(p):
+        if p == 0.0:
+            return 0.0
+
+        return -p * math.log2(p)
+
 
     def shannon_entropy(self):
         number_of_bits = len(self.bits)
@@ -21,8 +30,7 @@ class Entropy:
         if p_zeros == 0.0 or p_ones == 0.0:
             return 0.0
 
-        return -(p_zeros * math.log2(p_zeros)
-                 + p_ones * math.log2(p_ones))
+        return self.H(p_zeros) + self.H(p_ones)
 
     def entropy_rate(self, k):
         def block_entropy(k):
@@ -40,7 +48,7 @@ class Entropy:
 
             for count in counts.values():
                 p = count / number_of_blocks
-                entropy -= p * math.log2(p)
+                entropy += self.H(p)
 
             return entropy
 
