@@ -60,7 +60,7 @@ class Entropy:
 
 MEGABITS = 1000000
 
-chaotic = ChaoticShuffle(0.42)
+chaotic = ChaoticShuffle(0.42, 0.00001)
 extractor = BitExtractor(chaotic)
 
 bits_ = [extractor.next_bit() for _ in range(2*MEGABITS)]

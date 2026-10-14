@@ -1,16 +1,17 @@
 import numpy as np
 
 class ChaoticShuffle:
-    def __init__(self, seed=0.99999):
+    def __init__(self, seed=0.99999, ep=0.01 ):
         if not (0 < seed < 1):
             raise ValueError("Seed must be between 0 and 1.")
 
+        self.epsilon = ep
         self.x = seed
         self.warm_up(100)
 
-    def next_chaotic_float(self, epsilon=0.001):
+    def next_chaotic_float(self):
         k = 4.0 #k > 3 for chaos!!!
-        noise = np.random.normal(loc=0.0, scale=epsilon)
+        noise = np.random.normal(loc=0.0, scale=self.epsilon)
         self.x = k * self.x * (1.0 - self.x) + noise
 
         #print(self.x)

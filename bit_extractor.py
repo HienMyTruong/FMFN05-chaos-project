@@ -1,6 +1,3 @@
-from chaoticrand import ChaoticShuffle
-
-MEGABITS = 1000000
 class BitExtractor:
     def __init__(self, chaotic):
         self.chaotic = chaotic
@@ -22,17 +19,3 @@ class BitExtractor:
                 return 1
 
 
-
-chaotic = ChaoticShuffle(0.42)
-extractor = BitExtractor(chaotic)
-
-bits_ = [extractor.next_bit() for _ in range(MEGABITS)]
-
-von_neumann_bits = [
-    extractor.next_von_neumann_bit()
-    for _ in range(MEGABITS)
-]
-
-#print(von_neumann_bits)
-
-#print(bits_)
