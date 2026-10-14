@@ -1,0 +1,6 @@
+[submodule "external/random_test"]
+	path = external/random_test
+	url = https://github.com/hienmytruong/random_test.git
+[submodule "external/nist-sts"]
+	path = external/nist-sts
+	url = https://github.com/kravietz/nist-sts.git
