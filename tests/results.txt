@@ -1,0 +1,40 @@
+/usr/local/bin/python3.11 /Users/hientruong/Documents/f23/FMFN05-chaos-project/tests/results.py
+Randomness test visualizer
+
+============================================================
+ENT RESULTS
+============================================================
+Entropy                  : 7.99808
+Chi-square               : 334.1
+Arithmetic mean          : 127.3895
+Monte Carlo Pi           : 3.1375222
+Serial correlation       : 0.000154
+Saved: /Users/hientruong/Documents/f23/FMFN05-chaos-project/data/test_results/ent_entropy.png
+Saved: /Users/hientruong/Documents/f23/FMFN05-chaos-project/data/test_results/ent_chi_square.png
+Saved: /Users/hientruong/Documents/f23/FMFN05-chaos-project/data/test_results/ent_arithmetic_mean.png
+Saved: /Users/hientruong/Documents/f23/FMFN05-chaos-project/data/test_results/ent_monte_carlo_pi.png
+Saved: /Users/hientruong/Documents/f23/FMFN05-chaos-project/data/test_results/ent_serial_correlation.png
+
+============================================================
+PRACTRAND RESULTS
+============================================================
+normal              : 1
+unusual             : 2
+suspicious          : 4
+very suspicious     : 0
+fail                : 4
+
+Potential problems:
+  FPF-14+6/16:all                   R=  -6.6  p =1-1.5e-4   mildly suspicious
+  FPF-14+6/16:cross                 R=  +6.5  p =  5.5e-5   mildly suspicious
+  FPF-14+6/16:cross                 R=  +4.5  p =  7.4e-4   unusual
+  DC6-9x1Bytes-1                    R=  +7.2  p =  7.2e-4   mildly suspicious
+  Gap-16:A                          R=+218.9  p =  9.7e-170   FAIL !!!!!!
+  Gap-16:B                          R=+221.5  p =  1.0e-169   FAIL !!!!!!
+  FPF-14+6/16:cross                 R=  +6.6  p =  2.7e-5   mildly suspicious
+  [Low16/64]Gap-16:A                R=+234.5  p =  1.4e-189   FAIL !!!!!!
+  [Low16/64]Gap-16:B                R=+269.2  p =  1.3e-205   FAIL !!!!!!
+  [Low16/64]FPF-14+6/16:cross       R=  +5.2  p =  3.6e-4   unusual
+Saved: /Users/hientruong/Documents/f23/FMFN05-chaos-project/data/test_results/practrand_classifications.png
+
+Process finished with exit code 0
