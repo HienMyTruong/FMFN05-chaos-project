@@ -4,3 +4,6 @@
 [submodule "external/nist-sts"]
 	path = external/nist-sts
 	url = https://github.com/kravietz/nist-sts.git
+[submodule "external/dieharder"]
+	path = external/dieharder
+	url = https://github.com/eddelbuettel/dieharder.git
