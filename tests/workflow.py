@@ -6,7 +6,7 @@ from chaoticrand import ChaoticShuffle
 from bit_extractor import BitExtractor
 
 
-EPSILON = 0.0001
+EPSILON = 0.001
 SEED = 0.42
 MEGABITS = 1_000_000
 GIGABITS = 1_000_000_000
@@ -38,7 +38,7 @@ bits = [
 
 save_bits_as_bin(
     bits,
-    "chaotic_bits.bin",
+    "chaotic_bits_GB.bin",
 )
 
 chaotic_vn = ChaoticShuffle(SEED, EPSILON)
@@ -51,6 +51,6 @@ von_neumann_bits = [
 
 save_bits_as_bin(
     von_neumann_bits,
-    "chaotic_von_neumann.bin",
+    "chaotic_von_neumann_GB.bin",
 )
 

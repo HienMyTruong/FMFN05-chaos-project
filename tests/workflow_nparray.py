@@ -3,8 +3,8 @@ import numpy as np
 from chaoticrand import ChaoticShuffle
 from bit_extractor import BitExtractor
 
-
-EPSILON = 1e-5
+# 0.001 < epsilon < 0.01
+EPSILON = 0.01
 SEED = 0.42
 MEGABITS = 1000000
 
