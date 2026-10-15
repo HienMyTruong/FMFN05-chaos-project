@@ -33,7 +33,7 @@ extractor = BitExtractor(chaotic)
 
 bits = [
     extractor.next_bit()
-    for _ in range(MEGABITS)
+    for _ in range(GIGABITS)
 ]
 
 save_bits_as_bin(
@@ -46,7 +46,7 @@ extractor_vn = BitExtractor(chaotic_vn)
 
 von_neumann_bits = [
     extractor_vn.next_von_neumann_bit()
-    for _ in range(MEGABITS)
+    for _ in range(GIGABITS)
 ]
 
 save_bits_as_bin(
