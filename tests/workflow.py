@@ -8,12 +8,12 @@ from bit_extractor import BitExtractor
 
 EPSILON = 0.0001
 SEED = 0.42
-NUMBER_OF_BITS = 1_000_000
+MEGABITS = 1_000_000
+GIGABITS = 1_000_000_000
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 DATA_DIR.mkdir(exist_ok=True)
-
 
 def save_bits_as_bin(bits, filename):
     bits = np.asarray(bits, dtype=np.uint8)
@@ -33,7 +33,7 @@ extractor = BitExtractor(chaotic)
 
 bits = [
     extractor.next_bit()
-    for _ in range(NUMBER_OF_BITS)
+    for _ in range(MEGABITS)
 ]
 
 save_bits_as_bin(
@@ -46,10 +46,11 @@ extractor_vn = BitExtractor(chaotic_vn)
 
 von_neumann_bits = [
     extractor_vn.next_von_neumann_bit()
-    for _ in range(NUMBER_OF_BITS)
+    for _ in range(MEGABITS)
 ]
 
 save_bits_as_bin(
     von_neumann_bits,
     "chaotic_von_neumann.bin",
 )
+
