@@ -8,8 +8,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 RESULTS_DIR = DATA_DIR / "test_results"
 
-ENT_LOG = DATA_DIR / "test_ent.log"
-PRACTRAND_LOG = DATA_DIR / "test_practrand.log"
+ENT_LOG = DATA_DIR / "test_ent_von_neumann_GB.log"
+PRACTRAND_LOG = DATA_DIR / "test_practrand_von_neumann_GB.log"
 
 RESULTS_DIR.mkdir(exist_ok=True)
 
