@@ -108,14 +108,3 @@ class BasicStats:
         print("----------------------------------------------------\n")
 
         plt.show()
-
-        plt.plot(lags, 10*np.log10(rhat))
-        plt.title("Autocorrelation of values in dB", fontsize=14)
-        plt.set_xlabel(r"Lag $k$")
-        plt.set_ylabel("Autocorrelation [dB]")   
-        plt.set_ylim(-15/np.sqrt(len(self.floats)), 15/np.sqrt(len(self.floats)))
-        plt.axhline(1/np.sqrt(len(self.floats)), color="r", linestyle="--", label=r"$1/\sqrt{n}$")
-        plt.axhline(-1/np.sqrt(len(self.floats)), color="r", linestyle="--")
-        plt.axhline(10/np.sqrt(len(self.floats)), color="orange", linestyle="--", label=r"$10/\sqrt{n}$")
-        plt.axhline(-10/np.sqrt(len(self.floats)), color="orange", linestyle="--")
-        plt.legend()
