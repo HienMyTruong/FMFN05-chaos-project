@@ -40,9 +40,30 @@ stats = BasicStats(
     bits=bits
 )
 
+""
+
 stats.test_all(
     logistic_map=True,
     max_lags=1000
 )
 
 
+
+
+
+von_neumann_bits = [
+    extractor.next_von_neumann_bit()
+    for _ in range(10*MEGABITS)
+]
+
+
+
+stats = BasicStats(
+    floats=floats,
+    bits=von_neumann_bits
+)
+
+stats.test_all(
+    logistic_map=True,
+    max_lags=1000
+)

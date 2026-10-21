@@ -2,6 +2,7 @@ from chaoticrand import ChaoticShuffle
 from bit_extractor import BitExtractor
 from collections import Counter
 import math
+import matplotlib.pyplot as plt
 
 
 
@@ -60,11 +61,77 @@ class Entropy:
 
 MEGABITS = 1000000
 
-chaotic = ChaoticShuffle(0.42, 0.00001)
+
+
+
+chaotic = ChaoticShuffle(0.42, 0.01)
 extractor = BitExtractor(chaotic)
 
-bits_ = [extractor.next_bit() for _ in range(2*MEGABITS)]
+bits_ = [
+    extractor.next_bit()
+    for _ in range(10 * MEGABITS)
+]
 
-entropy = Entropy(bits_)
+entropy_raw = Entropy(bits_)
 
-print(entropy.entropy_rate(11))
+raw_rates = []
+
+for k in range(1, 17):
+    rate = entropy_raw.entropy_rate(k)
+    raw_rates.append(rate)
+    print(k, rate)
+
+
+chaotic_vn = ChaoticShuffle(0.42, 0.01)
+extractor_vn = BitExtractor(chaotic_vn)
+
+von_neumann_bits = [
+    extractor_vn.next_von_neumann_bit()
+    for _ in range(10 * MEGABITS)
+]
+
+entropy_vn = Entropy(von_neumann_bits)
+
+vn_rates = []
+
+for k in range(1, 17):
+    rate = entropy_vn.entropy_rate(k)
+    vn_rates.append(rate)
+    print(k, rate)
+
+
+
+
+k_values = range(1, 17)
+
+plt.figure(figsize=(9, 6))
+
+plt.plot(
+    k_values,
+    raw_rates,
+    marker="o",
+    label="Raw chaotic bits"
+)
+
+plt.plot(
+    k_values,
+    vn_rates,
+    marker="o",
+    label="Von Neumann bits"
+)
+
+plt.xlabel("Block length $k$")
+plt.ylabel("Estimated entropy rate $h_k$")
+
+plt.xticks(range(1, 17))
+
+plt.grid()
+plt.legend()
+plt.tight_layout()
+
+plt.savefig(
+    "data/test_results/entropy_rate_comparison.png",
+    dpi=300
+)
+
+plt.show()
