@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import math
 import sys
 from pathlib import Path
@@ -30,6 +31,42 @@ def shannon_entropy(p_one):
         entropy -= p_one * math.log2(p_one)
 
     return entropy
+
+def plot_entropy(ones):
+    iterations = np.arange(1, MAX_ITERATIONS + 1)
+
+    entropies = []
+
+    for number_of_ones in ones:
+        p_one = number_of_ones / REALIZATIONS
+        entropies.append(shannon_entropy(p_one))
+
+    theoretical_n = math.log(1 / EPSILON) / math.log(2)
+
+    plt.plot(iterations, entropies, marker="o")
+
+    plt.axvline(
+        theoretical_n,
+        linestyle="--",
+        label=f"Theoretical N = {theoretical_n:.2f}"
+    )
+
+    plt.axhline(
+        1,
+        linestyle=":",
+        label="Maximum entropy"
+    )
+
+    plt.xlabel("Iteration N")
+    plt.ylabel("Shannon entropy H(B_N)")
+    plt.title("Shannon entropy over iteration number")
+
+    plt.xticks(iterations)
+    plt.ylim(0, 1.05)
+
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
 
 
 def main():
@@ -65,6 +102,8 @@ def main():
 
     print()
     print(f"Theoretical N ≈ {theoretical_n:.2f}")
+
+    plot_entropy(ones)
 
 
 if __name__ == "__main__":
