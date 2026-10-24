@@ -53,25 +53,32 @@ class BasicStats:
         return frac_ones, interval
 
     
-    def test_all(self, logistic_map=True, max_lags=1000):
+    def test_all(self, logistic_map=False, max_lags=1000):
         fig, axs = plt.subplots(2, 2, figsize=(16,16))
 
         fig.suptitle("Basic statistical tests", fontsize=20)
 
-        if logistic_map == True:
-            x = np.linspace(1e-8,1-1e-8,1000) # Avoid 0 and 1 since the function is not defined there
-            rho_x = 1 / (np.pi*np.sqrt(x*(1-x))),
+        # if logistic_map == True:
+        #     x = np.linspace(1e-8,1-1e-8,1000) # Avoid 0 and 1 since the function is not defined there
+        #     rho_x = 1 / (np.pi*np.sqrt(x*(1-x))) + 6630
 
-            axs[0,0].hist(self.floats, bins=100, label="Counts")
-            axs[0,0].plot(x, rho_x, label="Density function")
-            axs[0,0].set_title("Histogram with density function", fontsize=14)
-            axs[0,0].set_xlabel(r"x")
-            axs[0,0].set_ylabel("Count")
-        else:
-            axs[0,0].hist(self.floats, bins=100, label="Counts")
-            axs[0,0].set_title("Histogram", fontsize=14)
-            axs[0,0].set_xlabel(r"x")
-            axs[0,0].set_ylabel("Count")
+        #     print(rho_x.shape)
+
+        #     axs[0,0].hist(self.floats, bins=100, label="Counts")
+        #     axs[0,0].plot(x, rho_x, label="Density function")
+        #     axs[0,0].set_title("Histogram with density function", fontsize=14)
+        #     axs[0,0].set_xlabel(r"x")
+        #     axs[0,0].set_ylabel("Count")
+        # else:
+        #     axs[0,0].hist(self.floats, bins=100, label="Counts")
+        #     axs[0,0].set_title("Histogram", fontsize=14)
+        #     axs[0,0].set_xlabel(r"x")
+        #     axs[0,0].set_ylabel("Count")
+
+        axs[0,0].hist(self.floats, bins=100, label="Counts")
+        axs[0,0].set_title("Histogram", fontsize=14)
+        axs[0,0].set_xlabel(r"x")
+        axs[0,0].set_ylabel("Count")
 
         Rhat, f = self.periodogram()
         axs[0,1].plot(f, 10*np.log10(Rhat))

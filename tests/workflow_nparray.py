@@ -1,4 +1,12 @@
 import numpy as np
+
+import sys
+from pathlib import Path
+
+# Add the project root to Python's import path
+project_root = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(project_root))
+
 from chaoticrand import ChaoticShuffle
 from bit_extractor import BitExtractor
 from stats_test import BasicStats
@@ -6,7 +14,7 @@ from stats_test import BasicStats
 # 0.001 < epsilon < 0.01
 
 SEED = 0.42
-EPSILON = 0.01
+EPSILON = 0.001
 MEGABITS = 1000000
 
 
@@ -29,23 +37,23 @@ extractor = BitExtractor(
     chaotic_bits
 )
 
-bits = [
-    extractor.next_bit()
-    for _ in range(MEGABITS)
-]
+# bits = [
+#     extractor.next_bit()
+#     for _ in range(10*MEGABITS)
+# ]
 
 
-stats = BasicStats(
-    floats=floats,
-    bits=bits
-)
+# stats = BasicStats(
+#     floats=floats,
+#     bits=bits
+# )
 
-""
+# ""
 
-stats.test_all(
-    logistic_map=True,
-    max_lags=1000
-)
+# stats.test_all(
+#     logistic_map=True,
+#     max_lags=10000
+# )
 
 
 
@@ -64,6 +72,6 @@ stats = BasicStats(
 )
 
 stats.test_all(
-    logistic_map=True,
-    max_lags=1000
+    logistic_map=False,
+    max_lags=10000
 )
